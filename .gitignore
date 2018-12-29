@@ -1,6 +1,5 @@
 secure.py
 ir/secure.py
-Pipfile
 Pipfile.lock
 /.idea
 /__pycache__
