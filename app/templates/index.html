@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}现代信息检索项目演示 {% endblock %}
+{% block content %}
+<div class="row">
+    <div class="'col-lg-6"><h3>点击一下30个按钮，查看相应的返回结果</h3></div>
+    <div class="col-lg-6">
+        <form class='form-inline' role='form' action="/" method="post">
+
+            <div class="form-group">
+                {{ form.csrf_token }}
+                <label>P@</label>
+                {{form.n(class_='form-control')}}
+               {{form.submit(class_='btn btn-primary')}}
+            </div>
+
+
+        </form>
+    </div>
+
+</div>
+<div class="row">
+    <table class="table">
+        <tbody>
+        {% for row in topics%}
+            <tr>
+                {% for col in row %}
+                    <td><a class="btn btn-primary" href={{col['href']}}>Topic {{col['number']}}</a></td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="row">
+   <form class='form-inline' role='form' action="/" method="post">
+
+            <div class="form-group">
+                {{ search.csrf_token }}
+                {{search.type_.label}}
+                {{search.type_(class_='form-control')}}
+
+
+                {{search.disease.label}}
+                {{search.disease(class_='form-control')}}
+
+
+           {{search.gene.label}}
+           {{search.gene(class_='form-control')}}
+                {{search.submit(class_='btn btn-primary')}}
+            </div>
+
+
+
+        </form>
+</div>
+
+{% endblock %}

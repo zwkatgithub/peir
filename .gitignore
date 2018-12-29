@@ -1,0 +1,8 @@
+secure.py
+ir/secure.py
+Pipfile
+Pipfile.lock
+/.idea
+/__pycache__
+ir/__pycache__
+app/__pycache__

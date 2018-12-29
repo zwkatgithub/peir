@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{%block title%} 检索结果 {%endblock%}
+{%block content%}
+
+<div class="row">
+     <a class="btn btn-primary" href="/">返回</a>
+    {% if p %}
+    <h3>P@{{n}} = {{p}}</h3>
+    {% endif %}
+
+</div>
+<div class="'row">
+    <table class="table">
+        <caption><h4>检索结果</h4></caption>
+        <thead>
+            <tr>
+                <th>文档名称</th>
+                <th>相关度评分</th>
+                {% if p %}
+                    <th>人工标记</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for result in results %}
+            <tr>
+                <td>
+                    {{result['doc_id']}}
+                </td>
+                <td>
+                    {{result['score']}}
+                </td>
+                {% if p %}
+                <td>
+                    {{result['tag']}}
+                </td>
+                {% endif %}
+            </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+</div>
+<div class="row">
+
+</div>
+
+{%endblock%}
